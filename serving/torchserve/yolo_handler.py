@@ -30,15 +30,18 @@ class YoloHandler(BaseHandler):
         self.initialized = True
 
     def preprocess(self, data):
-        images = []
-        for row in data:
-            body = row.get("body") if row.get("body") is not None else row.get("data")
-            if isinstance(body, (bytes, bytearray)):
-                img = Image.open(io.BytesIO(body)).convert("RGB")
-            else:
-                img = Image.open(io.BytesIO(body.encode())).convert("RGB")
-            images.append(img)
-        return images
+        req = data[0]
+        image_bytes = req.get("body") or req.get("data")
+
+        if not image_bytes:
+            # pour éviter le "silence"
+            raise ValueError("No image bytes found in request (expected 'body' or 'data').")
+
+        import io
+        from PIL import Image
+        img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+        return img
+
 
     def inference(self, inputs):
         results = self.model(inputs, verbose=False)

@@ -1,6 +1,6 @@
 services:
   torchserve:
-    image: pytorch/torchserve:latest-cpu
+    image: salahgo/torchserve:latest-cpu
     container_name: torchserve
     ports:
       - "8085:8080"   # inference
