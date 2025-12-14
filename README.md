@@ -41,7 +41,7 @@ Windows PowerShell:
 docker run --rm `
   -v ${PWD}:/workspace `
   -w /workspace `
-  pytorch/torchserve:latest-cpu `
+  salahgo/torchserve:latest-cpu `
   torch-model-archiver `
     --model-name yolo `
     --version 1.0 `
