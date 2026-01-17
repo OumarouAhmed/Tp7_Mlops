@@ -60,13 +60,23 @@ docker compose up -d --build
 ### 4) Tester
 
 #### Test direct TorchServe
+**Bash / Linux :**
 ```bash
 curl -X POST http://localhost:8085/predictions/yolo -T samples/street.jpg
 ```
+**Windows PowerShell :**
+```powershell
+curl.exe -X POST http://localhost:8085/predictions/yolo -T samples/street.jpg
+```
 
 #### Test via API Gateway
+**Bash / Linux :**
 ```bash
 curl -X POST "http://localhost:8000/predict" -F "file=@samples/street.jpg"
+```
+**Windows PowerShell :**
+```powershell
+curl.exe -X POST "http://localhost:8000/predict" -F "file=@samples/street.jpg"
 ```
 
 ## Redéploiement (simulation)
@@ -80,7 +90,3 @@ bash scripts/package_mar_docker.sh
 docker compose restart torchserve
 ```
 
-## Livrables
-- Lien vers votre fork.
-- `reports/tp7_report.md` complété.
-- Captures de tests d’inférence.
