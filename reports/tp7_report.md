@@ -19,7 +19,10 @@
 
 ## 4) Tests
 - Test TorchServe : **Succès** (Objets détectés : person, truck, etc.)
+  ![Capture TorchServe 1](images/capture_torchserve_1.png)
+  ![Capture TorchServe 2](images/capture_torchserve_2.png)
 - Test Gateway : **Succès** (Même résultat JSON)
+  ![Capture Gateway](images/capture_gateway.png)
 - Exemple de sortie JSON (court extrait) :
   ```json
   [
